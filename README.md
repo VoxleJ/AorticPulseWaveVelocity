@@ -15,3 +15,8 @@ This is a project focused on calculating Aortic Pulse Wave velocity given flow v
 ### Pulse Wave Velocity
   - This requires an external input of aortic arch/aortic length
   - For this project I measured full aortic and aortic arch length using a 3D centerline
+
+### So What is Going on Now? Sept. 25, 2019
+  - Currently I am having a difficult time with TT50 and TT25, theoretically all the method needs to do is get 50% or 25% of the max    upslope, and get the distance/subtract. Now this should give the Transit Time, but it doesn't.
+  - I am having issues where my XCorr method is differing on certain cases to one of the "gold standard" data sets I was given, and I am not sure why. About 50% of the time, the transit time at the highest correlation, and about 25% of the the the transit time at the next highest correlation is correct. Sometimes I don't get a value that is close to correct. 
+  - I have not worked on the group delay method.
