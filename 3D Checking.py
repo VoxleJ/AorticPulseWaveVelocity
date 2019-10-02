@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 
-filename1 = 'McCoskeyD_distance.csv'
+filename1 = 'MD_distance.csv'
 csv1 = np.genfromtxt (filename1, delimiter=",")
 
 fig = plt.figure()
