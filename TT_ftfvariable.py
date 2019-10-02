@@ -44,7 +44,7 @@ def find_nearest(array, value):
 
 t0 = time.time()
 #Loading data
-filename1 = 'RubinoA_ascend.csv'
+filename1 = 'RA_ascend.csv'
 csv1 = np.genfromtxt (filename1, delimiter=",")
 second = csv1[1,:]
 third = csv1[2,:]
@@ -56,7 +56,7 @@ yraw1 = csv1[:,1]
 plt.plot(xraw1,yraw1, 'o')
 
 
-filename2 = 'RubinoA_descend.csv'
+filename2 = 'RA_descend.csv'
 csv2 = np.genfromtxt (filename2, delimiter=",")
 second2 = csv2[1,:]
 third2 = csv2[2,:]
