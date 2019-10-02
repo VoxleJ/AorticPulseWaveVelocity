@@ -16,7 +16,12 @@ This is a project focused on calculating Aortic Pulse Wave velocity given flow v
   - This requires an external input of aortic arch/aortic length
   - For this project I measured full aortic and aortic arch length using a 3D centerline
 
-### So What is Going on Now? Sept. 27, 2019
+### So What is Going on Now? 
+
+## Oct. 2, 2019
+  - I added TT50, 25 and 20 to the main script. A user will now be prompted to enter which foot to foot method they would like to use.
+
+## Sept. 27, 2019
   - I still have some issues with the XCorr method, however I was missing a crucial step: I needed to normalize my data. After normalizing my data I'm getting much better values. However, normalizing has made this much more expensive. I am considering changing the interoplation method/number of points. Depending on the dataset I could have 1293000 points, therefore making the xcorr take way too long. 
   - Currently I am having a difficult time with TT50 and TT25, theoretically all the method needs to do is get 50% or 25% of the max    upslope, and get the distance/subtract. Now this should give the Transit Time, but it doesn't.  
   - I have not worked on the group delay method.
