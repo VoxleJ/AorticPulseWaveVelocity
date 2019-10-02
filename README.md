@@ -20,6 +20,7 @@ This is a project focused on calculating Aortic Pulse Wave velocity given flow v
 
 ### Oct. 2, 2019
   - I added TT50, 25 and 20 to the main script. A user will now be prompted to enter which foot to foot method they would like to use.
+  - I have also added a quick 3D Checking Script. This is to check how well the 3D centerline is traced in the Aortic Arch.
 
 ### Sept. 27, 2019
   - I still have some issues with the XCorr method, however I was missing a crucial step: I needed to normalize my data. After normalizing my data I'm getting much better values. However, normalizing has made this much more expensive. I am considering changing the interoplation method/number of points. Depending on the dataset I could have 1293000 points, therefore making the xcorr take way too long. 
