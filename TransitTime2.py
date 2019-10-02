@@ -16,6 +16,12 @@ import time
 def __abs__(self):
     return (self.x ** 2 + self.y ** 2) ** 0.5
 
+def find_nearest(array, value):
+    array = np.asarray(array)
+    idx = (np.abs(array - value)).argmin()
+    return array[idx]
+
+
 # =============================================================================
 # filename1 = 'PJ_ascend.csv'
 # file = open(filename1, mode = 'rt')
@@ -51,7 +57,7 @@ third = csv1[2,:]
 xraw1 = csv1[:,0]
 yraw1 = csv1[:,1]
 #yraw1 = yraw1 - 2000 #for different data
-#plt.plot(xraw1,yraw1)
+plt.plot(xraw1,yraw1, 'o')
 
 filename2 = 'HD_descend.csv'
 csv2 = np.genfromtxt (filename2, delimiter=",")
@@ -62,7 +68,7 @@ xraw2 = csv2[:,0]
 yraw2 = -1*csv2[:,1]
 #yraw2 = csv2[:,1]
 #yraw2 = -1*(yraw2-2000)
-#plt.plot(xraw2,yraw2)
+plt.plot(xraw2,yraw2, 'o')
 #plt.show()
 
 # =============================================================================
@@ -73,8 +79,6 @@ yraw2 = -1*csv2[:,1]
 # ax2.acorr(csv1[:,1], usevlines=True, normed=True, maxlags=35 , lw=2)
 # ax2.grid(True)
 # =============================================================================
-
-
 
 #alternate interpolation method
 #f1 = InterpolatedUnivariateSpline(xraw1, yraw1)
@@ -93,6 +97,58 @@ yraw3 = [0] * len(yraw1)
 yraw4 = [0] * len(yraw2)
 #y3 = [0] * len(y1)
 #y4 = [0] * len(y2)
+my1 = max(yraw1)
+my2 = max(yraw2)
+
+TT_method = input("Please choose a FTF method 20, 25 or 50: ")
+
+FTF_method = int(float(TT_method))
+
+if FTF_method == 20:
+    print("20% FTF Selected")
+    half1 = 0.20*my1
+    half2 = 0.20*my2
+
+elif FTF_method == 25:
+    print("25% FTF Selected")
+    half1 = 0.25*my1
+    half2 = 0.25*my2
+
+elif FTF_method == 50:
+    print("50% FTF Selected")
+    half1 = 0.50*my1
+    half2 = 0.50*my2 
+
+else:
+    print("Invalid Value")   
+    
+#print("50% Selected")
+#half1 = 0.50*my1
+#half2 = 0.50*my2
+
+nhalf1 = find_nearest(yraw1, half1)
+nhalf2 = find_nearest(yraw2, half2)
+
+my1loc = np.where(yraw1 == nhalf1)#y1.index(half1)
+my2loc = np.where(yraw2 == nhalf2) #y2.index(half2)
+#TA = csvxnew[my1loc] #csvxnew[]
+#TD = csvxnew[my2loc]
+TA = xraw1[my1loc]
+TD = xraw2[my2loc]
+print(TA)
+print(TD)
+TT = TA - TD
+TT2 = TD - TA
+#distance = math.sqrt( ((TA-TD)**2)+((nhalf1-nhalf2)**2) )
+
+print('TT TA-TD: ', TT)
+print()
+print('TT TD-TA: ', TT2)
+print()
+#print('Distance: ', distance)
+print()
+
+print('XCorr Method Follows')
 
 for i in range(len(yraw1)):
     yraw3[i] = (yraw1[i] - min(yraw1)) / (max(yraw1) - min(yraw1))
