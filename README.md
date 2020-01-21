@@ -19,7 +19,7 @@ This is a project focused on calculating Aortic Pulse Wave velocity given flow v
 # So What is Going on Now? 
 
 ### Dec. 13, 2019
-  -After working on the script on and off, it came to a deadline of a week and a half to finish the script. TT50 (half max), TT20/25 all work after some minor adjustments.
+  - After working on the script on and off, it came to a deadline of a week and a half to finish the script. TT50 (half max), TT20/25 all work after some minor adjustments.
   - A main issue was a trigger time issue that moved the foot/upslope times of the flow waveform to a distant time point. To combat this I circularly shifted all of the flow waveforms relative to where the foot time was most plausible to be. After the shift I then interpolated the waveforms and that sped up the XCorr method.
   -I will continue to work on this and add more methods, but as of now the script is stable.
 
